@@ -62,7 +62,8 @@ const texts = {};
 const finish = () => {
   if (!text) return;
   const b = text.lines.join("\n").replace(/\n{3,}/g, "\n\n").replace(/^\n+|\n+$/g, "");
-  text.body = b;
+  // кавычки, которые открываются и закрываются на разных строках
+  text.body = b.replace(/“([^”]*)”/g, "«$1»");
   delete text.lines;
 };
 for (const el of tab.body.content) {
