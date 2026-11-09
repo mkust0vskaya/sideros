@@ -3,13 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve --port=8080",
-    "demo": "CONTENT_DIR=prototype/content-demo eleventy --serve --port=8081 --output=prototype/_demo"
+    "build": "eleventy && pagefind --site _site --silent",
+    "serve": "npm run build && eleventy --serve --port=8080",
+    "demo": "CONTENT_DIR=prototype/content-demo eleventy --output=prototype/_demo && pagefind --site prototype/_demo --silent"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.8",
     "@fontsource/pt-sans": "5.3.0",
-    "@fontsource/pt-serif": "5.3.0"
+    "@fontsource/pt-serif": "5.3.0",
+    "pagefind": "1.6.0"
   }
 }

@@ -279,8 +279,58 @@
   $("#showSide").onclick = () => setCollapsed(false);
   addEventListener("resize", () => { placeBar(); fitCrumbs(); });
 
-  /* ---------- поиск: подключается отдельным шагом (Pagefind) ---------- */
+  /* ---------- поиск (Pagefind) ---------- */
   $("#search").addEventListener("click", e => { if (!e.target.closest("button")) $("#q").focus(); });
+  $("#search").addEventListener("submit", e => { if (!$("#q").value.trim()) e.preventDefault(); });
+  const resultsEl = document.getElementById("results");
+
+  // как в прототипе: фразы в кавычках ищутся целиком, слова -- по основе и по началу
+  const norm = s => s.toLowerCase().replace(/ё/g, "е");
+  const ENDINGS = ["иями","ями","ами","ией","ием","иях","ого","его","ому","ему","ыми","ими","ой","ей","ом","ем","ам","ям","ах","ях","ую","юю","ая","яя","ое","ее","ые","ие","ый","ий","ов","ев","ию","ья","ье","ьи","ью","а","я","о","е","ы","и","у","ю","ь","й"];
+  const stem = w => { for (const x of ENDINGS) if (w.length - x.length >= 3 && w.endsWith(x)) return w.slice(0, -x.length); return w; };
+  const toks = s => norm(s).split(/[^a-zа-я0-9-]+/).filter(Boolean);
+  function parseQuery(q){
+    return { phrases: [...q.matchAll(/"([^"]+)"|«([^»]+)»/g)].map(m => norm(m[1] || m[2])),
+             words: toks(q.replace(/"[^"]*"|«[^»]*»/g, " ")).map(stem) };
+  }
+  const lineHit = (l, pq) => pq.phrases.some(p => norm(l).includes(p)) || pq.words.some(w => toks(l).some(k => k.startsWith(w)));
+  const matchesAll = (text, pq) => pq.phrases.every(p => norm(text).includes(p)) && pq.words.every(w => toks(text).some(k => k.startsWith(w)));
+
+  async function runSearch(q){
+    $("#q").value = q;
+    const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const stat = $("#sstat");
+    const show = (head, list = "") => { stat.textContent = head; stat.hidden = !head; resultsEl.innerHTML = list; setPh(); };
+    if (!q.trim()){ show("", `<p class="muted">Введите слово или строку в поле поиска.</p>`); return; }
+    show(`«${q}» -- ищу…`);
+    let found = [];
+    try {
+      const pagefind = await import("/pagefind/pagefind.js");
+      const pq = parseQuery(q);
+      const plain = q.replace(/["«»]/g, " ");
+      const res = await pagefind.search(plain);
+      const data = await Promise.all(res.results.slice(0, 50).map(r => r.data()));
+      // проверяем каждую найденную страницу по правилам прототипа и берём строку с совпадением
+      for (const d of data){
+        const html = await (await fetch(d.url)).text();
+        const art = new DOMParser().parseFromString(html, "text/html").querySelector("article.piece");
+        if (!art) continue;
+        const lines = [...art.querySelectorAll(".ln, p:not(.rights):not(:has(.file))")].map(x => x.textContent.trim()).filter(Boolean);
+        const meta = [...art.querySelectorAll(".pmeta div")].map(x => x.textContent.trim());
+        const title = d.meta.title || "";
+        if (!matchesAll([title, ...lines, ...meta].join("\n"), pq)) continue;
+        found.push({ url: d.url, title, hit: lines.find(l => lineHit(l, pq)) || meta.find(l => lineHit(l, pq)) || "" });
+      }
+    } catch (e) {
+      show("", `<p class="muted">Поиск сейчас не работает. Попробуйте обновить страницу.</p>`); return;
+    }
+    // порядок как в прототипе -- порядок сайта (по оглавлению)
+    const order = [...document.querySelectorAll("#tree a[data-text]")].map(a => a.getAttribute("href"));
+    found.sort((a, b) => order.indexOf(a.url) - order.indexOf(b.url));
+    show(`«${q}» -- ${found.length ? "найдено: " + found.length : "ничего не найдено"}`,
+      `<ul class="list results">` + found.map(f => `<li><a href="${esc(f.url)}">${esc(f.title)}</a>${f.hit ? `<span class="hit">${esc(f.hit)}</span>` : ""}</li>`).join("") + `</ul>`);
+  }
+  if (resultsEl) runSearch(new URLSearchParams(location.search).get("q") || "");
 
   /* ---------- Escape: шаг назад, но только внутри сайта ---------- */
   document.addEventListener("keydown", e => {
