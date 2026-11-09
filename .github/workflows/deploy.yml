@@ -1,8 +1,10 @@
 name: Публикация сайта
 
+# Пока GitHub Pages не включён (шаг 7 в ПЕРЕЕЗД.md) -- только ручной запуск.
+# При включении домена вернуть автоматическую публикацию:
+#   push:
+#     branches: [main]
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
