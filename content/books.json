@@ -1,0 +1,189 @@
+{
+ "books": [
+  {
+   "id": "sluchaynoe-zhivoe-sushchestvo",
+   "title": "Случайное живое существо",
+   "status": "Книга готовится к изданию"
+  },
+  {
+   "id": "uchenik-duraka",
+   "title": "Ученик дурака",
+   "date": "2015",
+   "place": "Москва",
+   "lines": [
+    "Издательство Livebook",
+    "ISBN 978-5-9905810-5-0"
+   ]
+  },
+  {
+   "id": "shutki-konchilis",
+   "title": "Шутки кончились",
+   "date": "2011",
+   "place": "Москва",
+   "lines": [
+    "Издательство БастианBooks",
+    "ISBN 978-9984-816-36-4"
+   ]
+  }
+ ],
+ "publications": [
+  {
+   "title": "Рада вас мясо",
+   "url": "https://www.5wave-ru.com/the-fifth-wave-volume-3-3",
+   "urlLabel": "на сайте 5-й волны",
+   "date": "2023",
+   "place": "Amsterdam",
+   "lines": [
+    "Пятая волна -- The 5-th Wave, №3(3), осень’23",
+    "ISBN 9789028233263"
+   ]
+  },
+  {
+   "title": "Песенка / A Folk Song",
+   "url": "https://smokestack-books.co.uk/book.php?book=228",
+   "urlLabel": "на сайте издательства",
+   "date": "2023",
+   "place": "Grewelthorpe, UK",
+   "lines": [
+    "Disbelief: 100 Russian Anti-War Poems",
+    "Smokestack Books",
+    "ISBN 9781739772277"
+   ]
+  },
+  {
+   "title": "Солнце",
+   "url": "http://berlin-berega.de",
+   "urlLabel": "berlin-berega.de",
+   "date": "2022",
+   "lines": [
+    "Берлин. Берега -- Literaturzeitschrift BERLIN.BEREGA, №14 (№1/2022)",
+    "ISSN 2366-3510"
+   ]
+  },
+  {
+   "title": "Война. Стихотворения 24.02.2022 -- 24.05.2022",
+   "date": "2022",
+   "lines": [
+    "FRESH Verlag",
+    "ISBN-10 3000730052, ISBN-13 978-3000730054"
+   ]
+  },
+  {
+   "title": "Поэты против войны",
+   "url": "https://nowarpoetry.com/authors/dana-sideros/",
+   "urlLabel": "подборка",
+   "date": "2022",
+   "lines": [
+    "KRiK Publishing House"
+   ]
+  },
+  {
+   "title": "Живые поэты. Книга II",
+   "date": "2020",
+   "lines": [
+    "Антология",
+    "АСТ",
+    "ISBN 978-5-17-120064-0"
+   ]
+  },
+  {
+   "title": "Нюансы сюжета",
+   "url": "http://www.litjournaldv.ru/index.php/nomer/772-512020",
+   "urlLabel": "на сайте журнала",
+   "date": "2020",
+   "lines": [
+    "Журнал «Дальний Восток», №5"
+   ]
+  },
+  {
+   "title": "Говоритель",
+   "date": "январь 2019",
+   "lines": [
+    "Сноб"
+   ]
+  },
+  {
+   "title": "Косточки щучьей речи",
+   "date": "апрель 2017",
+   "lines": [
+    "Лиterraтура, №95"
+   ]
+  },
+  {
+   "title": "Сентябрь",
+   "date": "2013",
+   "lines": [
+    "Лучшие стихи 2012 года. Антология",
+    "ОГИ"
+   ]
+  },
+  {
+   "title": "Мотылёк в саркофаге кокона",
+   "date": "2013",
+   "lines": [
+    "ШО, №11-12(97-98)",
+    "подборка стихотворений"
+   ]
+  },
+  {
+   "title": "Подборка стихотворений",
+   "date": "2013",
+   "lines": [
+    "Гвидеон, №6"
+   ]
+  },
+  {
+   "title": "Подборка стихотворений",
+   "date": "2012",
+   "place": "Москва",
+   "lines": [
+    "Контрабанда, №1(19)"
+   ]
+  },
+  {
+   "title": "Подборка стихотворений",
+   "url": "https://magazines.gorky.media/bereg/2012/36/stihotvoreniya-154.html",
+   "urlLabel": "журнальный зал",
+   "date": "2012",
+   "lines": [
+    "Новый берег, №36"
+   ]
+  },
+  {
+   "title": "Орфей",
+   "date": "2009",
+   "place": "Москва",
+   "lines": [
+    "Конец Эпохи, №3(38)",
+    "поэма"
+   ]
+  },
+  {
+   "title": "Кушать подано",
+   "date": "2009",
+   "place": "Москва",
+   "lines": [
+    "Конец Эпохи, №1(36)",
+    "подборка стихотворений"
+   ]
+  },
+  {
+   "title": "Всюду слова",
+   "date": "2008",
+   "place": "Москва",
+   "lines": [
+    "Конец Эпохи, №3(35)",
+    "подборка стихотворений"
+   ]
+  },
+  {
+   "title": "Агитки в жанре хоррор",
+   "date": "2008",
+   "place": "Москва",
+   "lines": [
+    "Конец Эпохи, №1(33)",
+    "подборка стихотворений"
+   ]
+  }
+ ]
+}

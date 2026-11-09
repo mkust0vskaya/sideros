@@ -1,0 +1,42 @@
+{
+ "name": "Дана Сидерос",
+ "intro": [
+  "Привет, это автор (и админ в одном лице). Надеюсь, у вас всё хорошо или вы хотя бы на пути в этому. Сайт еще в процессе наполнения, но скоро тут будут все или почти все мои тексты.",
+  "Если вы хотите как-то использовать мой текст, свяжитесь со мной, пожалуйста, ниже довольно много способов это сделать."
+ ],
+ "contacts": [
+  {
+   "label": "Почта",
+   "mail": "bW9jLmxpYW1nQHNvcmVkaXMuYW5hZA=="
+  },
+  {
+   "label": "Телеграм для связи",
+   "text": "@lllytnik",
+   "url": "https://t.me/lllytnik"
+  },
+  {
+   "label": "Телеграм-канал со свежими стихами",
+   "text": "t.me/sideros",
+   "url": "https://t.me/sideros"
+  },
+  {
+   "label": "Личный блог",
+   "text": "t.me/whereisfuckingMasha",
+   "url": "https://t.me/whereisfuckingMasha"
+  }
+ ],
+ "social": [
+  [
+   "Facebook",
+   "https://www.facebook.com/lllytnik/"
+  ],
+  [
+   "Instagram",
+   "https://www.instagram.com/dana.sideros/"
+  ],
+  [
+   "ВКонтакте",
+   "https://vk.ru/dana_sideros"
+  ]
+ ]
+}

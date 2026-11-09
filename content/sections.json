@@ -1,0 +1,46 @@
+[
+ {
+  "id": "stihi",
+  "title": "Стихи",
+  "subs": [
+   {
+    "id": "stihi-2026",
+    "title": "2026",
+    "texts": [
+     "maloveroyatno",
+     "kochevat",
+     "vizitka",
+     "omul",
+     "sluchay-na-severe",
+     "sluchay-na-yuge",
+     "korotkaya-nedelya"
+    ]
+   },
+   {
+    "id": "stihi-2025",
+    "title": "2025",
+    "texts": [
+     "ol-inklyuziv",
+     "byl",
+     "posudomoyka",
+     "poshagovyy-plan",
+     "zadnik",
+     "ta-tiri",
+     "romans",
+     "iris-ibis-irbis"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "pyesy",
+  "title": "Пьесы",
+  "subs": [],
+  "texts": []
+ },
+ {
+  "id": "proza",
+  "title": "Проза",
+  "subs": []
+ }
+]
